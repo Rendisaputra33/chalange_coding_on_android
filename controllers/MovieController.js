@@ -27,8 +27,6 @@ class MovieController {
 
 	async addMovie(req, res) {
 
-		console.log(req.body)
-
 		const dataSubmit = {
 			title: req.body.title,
 			imdbid: req.body.imdbid,
@@ -37,15 +35,12 @@ class MovieController {
 			year: req.body.year
 		}
 
-		console.log(dataSubmit)
-
 		const data = await this.add({ ...dataSubmit })
 		res.json({
 			success: true,
 			data : data
 		})
 	}
-
 }
 
 module.exports = { MovieController }
