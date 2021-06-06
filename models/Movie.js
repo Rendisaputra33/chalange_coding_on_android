@@ -6,6 +6,7 @@ const movieSchema = mongoose.Schema({
   },
   imdbid: {
     type: String,
+    unique : 1
   },
   poster: {
     type: String,

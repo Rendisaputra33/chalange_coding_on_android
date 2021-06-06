@@ -12,6 +12,7 @@ class MovieController {
 		const movie = await this.getMovie()
 		res.json({
 			success: true,
+			count_data : movie.length,
 			data: movie
 		})
 	}
@@ -26,6 +27,8 @@ class MovieController {
 
 	async addMovie(req, res) {
 
+		console.log(req.body)
+
 		const dataSubmit = {
 			title: req.body.title,
 			imdbid: req.body.imdbid,
@@ -36,10 +39,10 @@ class MovieController {
 
 		console.log(dataSubmit)
 
-		//const data = await this.add({ ...dataSubmit })
+		const data = await this.add({ ...dataSubmit })
 		res.json({
 			success: true,
-			// data : data
+			data : data
 		})
 	}
 
