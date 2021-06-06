@@ -29,7 +29,3 @@ app.use(express.static('public'))
 app.get("/", (req, res) => res.sebdFile('public/index.html'))
 // start server 
 app.listen(process.env.PORT, () => console.log(`server run on ${process.env.PORT}`))
-
-app.use(cors({
-				origin : 'http://localhost:3000'
-}))
