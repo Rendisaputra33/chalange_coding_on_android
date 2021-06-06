@@ -6,4 +6,6 @@ route.get("/all", async (req, res) => await new MovieController().getAll(req, re
 
 route.get("/detail/:id", async (req, res) => await new MovieController().getOne(req, res))
 
+route.post("/addMovie", async (req, res) => await new MovieController().addMovie(req, res))
+
 module.exports = route

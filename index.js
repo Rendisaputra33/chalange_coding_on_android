@@ -7,6 +7,7 @@ const env = require("dotenv").config()
 const database = require("./configs/Connection")
 const userRoute = require("./routes/User")
 const movieRoute = require("./routes/Movie")
+const cors = require("cors")
 
 
 // initial connection from datavase
@@ -16,8 +17,8 @@ app.use(morgan("dev"))
 // setup cookie parser
 app.use(cookie())
 // setup body parser
-app.use(body.urlencoded({ extended: false }))
-app.use(body.json())
+app.use(body.urlencoded({ extended: true }))
+// app.use(body.json())
 // routing api users
 app.use("/api/user/", userRoute)
 //routing api movie
@@ -28,3 +29,7 @@ app.use(express.static('public'))
 app.get("/", (req, res) => res.sebdFile('public/index.html'))
 // start server 
 app.listen(process.env.PORT, () => console.log(`server run on ${process.env.PORT}`))
+
+app.use(cors({
+				origin : 'http://localhost:3000'
+}))

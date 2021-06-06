@@ -4,20 +4,17 @@ const movieSchema = mongoose.Schema({
   title: {
     type: String,
   },
+  imdbid : {
+  				type : String,
+  },
   poster: {
   		 type: String,
   },
-  plot: {
-  				type: String
-  },
-  rating: {
-  				type: Number,
-  },
-  genre: {
+ 		type: {
   				type: String
   },
   year: {
-  				year: String
+  			 type: String
   }
 });
 

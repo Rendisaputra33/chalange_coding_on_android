@@ -1,20 +1,19 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require("../libs/bcrypt")
 
-const hashPass = async (pw, salt = 10) => {
-				try {
-								const hash = await bcrypt.hash(pw, salt)
-								if(hash) return hash
-				} catch(e) {
-								console.log(e)
-				}
+const hashPass = (pw) => {
+				var hashres = ""
+				bcrypt.hash(pw, (err, hash) => {
+								hashres = hash
+				})
+				return hashres
 }
 
-const comparePass = async (pw, hash) => {
-				try {
-								return await bcrypt.compare(pw, hash)		
-				} catch(e) {
-								console.log(e)
-				}
+const comparePass = (pw, hash) => {
+				var comparep = false
+				bcrypt.compare(pw, hash, (err, res) => {
+								comparep = res
+				})
+				return comparep
 }
 
 
